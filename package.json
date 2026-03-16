@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "nitro:build": "nitro build",
+    "nitro:deploy": "nitro deploy --prebuilt",
+    "nitro:dev": "nitro dev",
+    "worker:deploy": "wrangler deploy -c wrangler.worker.json",
+    "worker:dev": "wrangler dev -c wrangler.worker.json"
+  },
+  "dependencies": {
+    "nitro": "^3.0.260311-beta",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.18.0",
+    "wrangler": "^4.73.0"
+  }
+}
