@@ -31,7 +31,7 @@ const nitroWrangler: NitroModule = {
       await rewriteOutputImports(nitro, nitro.options.output.serverDir);
       await rewriteWranglerConfig(nitro, nitro.options.output.serverDir);
       nitro.logger.success(
-        `nitro-wrangler rewrote \`${relative(process.cwd(), nitro.options.output.serverDir)}\``
+        `nitro-wrangler rewrote \`${relative(process.cwd(), nitro.options.output.serverDir)}\``,
       );
     });
   },
@@ -69,23 +69,33 @@ async function rewriteOutputImports(nitro: Nitro, serverDir: string) {
       if (rewritten !== source) {
         await writeFile(file, rewritten);
       }
-    })
+    }),
   );
 }
 
 function rewriteModuleImports(source: string, fromFile: string, nitro: Nitro) {
-  const rewrite = (specifier: string) => rewriteSpecifier(specifier, fromFile, nitro);
+  const rewrite = (specifier: string) =>
+    rewriteSpecifier(specifier, fromFile, nitro);
 
   return source
-    .replace(/from\s+(['"])([^'"]+)\1/g, (_full, quote: string, specifier: string) => {
-      return `from ${quote}${rewrite(specifier)}${quote}`;
-    })
-    .replace(/\bimport\s+(['"])([^'"]+)\1/g, (_full, quote: string, specifier: string) => {
-      return `import ${quote}${rewrite(specifier)}${quote}`;
-    })
-    .replace(/import\(\s*(['"])([^'"]+)\1\s*\)/g, (_full, quote: string, specifier: string) => {
-      return `import(${quote}${rewrite(specifier)}${quote})`;
-    });
+    .replace(
+      /from\s+(['"])([^'"]+)\1/g,
+      (_full, quote: string, specifier: string) => {
+        return `from ${quote}${rewrite(specifier)}${quote}`;
+      },
+    )
+    .replace(
+      /\bimport\s+(['"])([^'"]+)\1/g,
+      (_full, quote: string, specifier: string) => {
+        return `import ${quote}${rewrite(specifier)}${quote}`;
+      },
+    )
+    .replace(
+      /import\(\s*(['"])([^'"]+)\1\s*\)/g,
+      (_full, quote: string, specifier: string) => {
+        return `import(${quote}${rewrite(specifier)}${quote})`;
+      },
+    );
 }
 
 function rewriteSpecifier(specifier: string, fromFile: string, nitro: Nitro) {
@@ -95,7 +105,9 @@ function rewriteSpecifier(specifier: string, fromFile: string, nitro: Nitro) {
   }
 
   const relativePath = toPosixPath(relative(dirname(fromFile), path));
-  const normalized = relativePath.startsWith(".") ? relativePath : `./${relativePath}`;
+  const normalized = relativePath.startsWith(".")
+    ? relativePath
+    : `./${relativePath}`;
   return normalized + query;
 }
 
@@ -115,7 +127,9 @@ function isUserCodePath(path: string, nitro: Nitro) {
     return false;
   }
 
-  const includeRoots = [...new Set([nitro.options.rootDir, ...nitro.options.scanDirs])];
+  const includeRoots = [
+    ...new Set([nitro.options.rootDir, ...nitro.options.scanDirs]),
+  ];
   const excludeRoots = [
     nitro.options.buildDir,
     nitro.options.output.dir,
@@ -154,7 +168,7 @@ async function listModuleFiles(dir: string): Promise<string[]> {
         return [fullPath];
       }
       return [];
-    })
+    }),
   );
 
   return files.flat();
@@ -164,11 +178,16 @@ async function rewriteWranglerConfig(nitro: Nitro, serverDir: string) {
   const outputPath = resolve(serverDir, "wrangler.json");
 
   if (!existsSync(outputPath)) {
-    nitro.logger.warn("nitro-wrangler could not find Nitro wrangler.json to rewrite.");
+    nitro.logger.warn(
+      "nitro-wrangler could not find Nitro wrangler.json to rewrite.",
+    );
     return;
   }
 
-  const config = JSON.parse(await readFile(outputPath, "utf8")) as Record<string, unknown>;
+  const config = JSON.parse(await readFile(outputPath, "utf8")) as Record<
+    string,
+    unknown
+  >;
   config.main = "index.mjs";
   config.no_bundle = false;
 
