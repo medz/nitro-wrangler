@@ -1,0 +1,22 @@
+{
+  "name": "nitro-wrangler-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nitro build",
+    "deploy": "nitro deploy --prebuilt",
+    "dev": "nitro dev",
+    "worker:dev": "wrangler dev -c wrangler.worker.json",
+    "worker:deploy": "wrangler deploy -c wrangler.worker.json"
+  },
+  "dependencies": {
+    "nitro": "^3.0.260311-beta",
+    "nitro-wrangler": "file:..",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.18.0",
+    "wrangler": "^4.73.0"
+  }
+}

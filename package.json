@@ -1,18 +1,46 @@
 {
-  "scripts": {
-    "nitro:build": "nitro build",
-    "nitro:deploy": "nitro deploy --prebuilt",
-    "nitro:dev": "nitro dev",
-    "worker:deploy": "wrangler deploy -c wrangler.worker.json",
-    "worker:dev": "wrangler dev -c wrangler.worker.json"
+  "name": "nitro-wrangler",
+  "version": "0.1.0",
+  "description": "Nitro module that rewrites Cloudflare output into builderless-style Wrangler bundles",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    ".",
+    "playground"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "dependencies": {
-    "nitro": "^3.0.260311-beta",
-    "pg": "^8.20.0"
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check": "tsc -p tsconfig.build.json --noEmit",
+    "pack:dry": "npm pack --dry-run",
+    "prepack": "bun run build"
+  },
+  "peerDependencies": {
+    "nitro": "^3.0.260311-beta"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "@types/pg": "^8.18.0",
+    "nitro": "^3.0.260311-beta",
+    "rollup": "^4.59.0",
+    "typescript": "^5.9.3",
     "wrangler": "^4.73.0"
-  }
+  },
+  "keywords": [
+    "cloudflare",
+    "nitro",
+    "wrangler",
+    "builderless"
+  ]
 }

@@ -1,4 +1,5 @@
 .output
 .wrangler
+dist
 
 node_modules

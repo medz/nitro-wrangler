@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/wrangler/config-schema.json",
+  "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "nitro-via-pg",
   "compatibility_date": "2026-03-16",
   "compatibility_flags": ["nodejs_compat"]
