@@ -1,5 +1,5 @@
 import { defineConfig } from "nitro/config";
-import nitroWrangler from "nitro-wrangler";
+import nitroWrangler from "../../../dist/index.mjs";
 
 const builder = process.env.NITRO_BUILDER || "rolldown";
 

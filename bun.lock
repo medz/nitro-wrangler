@@ -31,7 +31,6 @@
       "name": "nitro-wrangler-test-app",
       "dependencies": {
         "nitro": "^3.0.260311-beta",
-        "nitro-wrangler": "file:../../..",
         "pg": "^8.20.0",
       },
       "devDependencies": {
