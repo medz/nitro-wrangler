@@ -6,6 +6,8 @@
 
 `nitro-wrangler` is a Nitro module that rewrites Nitro's Cloudflare server output into a builderless-style worker bundle.
 
+This package is a temporary workaround. Once Nitro resolves the compatibility issues between CJS/ESM output and `workerd`, this repository will be archived.
+
 It changes the final `.output/server` shape so that:
 
 - user code is emitted as relative imports instead of being bundled into Nitro output
