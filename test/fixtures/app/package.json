@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:vite": "NITRO_BUILDER=vite nitro build",
     "build:rollup": "NITRO_BUILDER=rollup nitro build",
     "build:rolldown": "NITRO_BUILDER=rolldown nitro build"
   },
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/node": "^25.5.0",
     "@types/pg": "^8.18.0",
+    "vite": "^8.0.0",
     "wrangler": "^4.73.0"
   }
 }

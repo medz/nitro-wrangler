@@ -24,9 +24,10 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.build.json --noEmit",
+    "test:vite": "bun run build && bun run --cwd test/fixtures/app build:vite && node --test test/vite.test.mjs",
     "test:rollup": "bun run build && bun run --cwd test/fixtures/app build:rollup && node --test test/rollup.test.mjs",
     "test:rolldown": "bun run build && bun run --cwd test/fixtures/app build:rolldown && node --test test/rolldown.test.mjs",
-    "test": "bun run test:rollup && bun run test:rolldown",
+    "test": "bun run test:rollup && bun run test:rolldown && bun run test:vite",
     "pack:dry": "npm pack --dry-run",
     "prepack": "bun run build"
   },
@@ -37,8 +38,7 @@
     "@types/node": "^25.5.0",
     "nitro": "^3.0.260311-beta",
     "rollup": "^4.59.0",
-    "typescript": "^5.9.3",
-    "wrangler": "^4.73.0"
+    "typescript": "^5.9.3"
   },
   "keywords": [
     "cloudflare",

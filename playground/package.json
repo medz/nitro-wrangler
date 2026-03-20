@@ -5,9 +5,7 @@
   "scripts": {
     "build": "nitro build",
     "deploy": "nitro deploy --prebuilt",
-    "dev": "nitro dev",
-    "worker:dev": "wrangler dev -c wrangler.worker.json",
-    "worker:deploy": "wrangler deploy -c wrangler.worker.json"
+    "dev": "nitro dev"
   },
   "dependencies": {
     "nitro": "^3.0.260311-beta",
