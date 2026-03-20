@@ -1,5 +1,9 @@
 # nitro-wrangler
 
+[![npm version](https://img.shields.io/npm/v/nitro-wrangler)](https://www.npmjs.com/package/nitro-wrangler)
+[![Test](https://github.com/medz/nitro-wrangler/actions/workflows/test.yml/badge.svg)](https://github.com/medz/nitro-wrangler/actions/workflows/test.yml)
+[![License](https://img.shields.io/npm/l/nitro-wrangler)](https://www.npmjs.com/package/nitro-wrangler)
+
 `nitro-wrangler` is a Nitro module that rewrites Nitro's Cloudflare server output into a builderless-style worker bundle.
 
 It changes the final `.output/server` shape so that:
