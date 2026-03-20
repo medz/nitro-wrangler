@@ -4,6 +4,9 @@
   "description": "Nitro module that rewrites Cloudflare output into builderless-style Wrangler bundles",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "url": "https://github.com/medz/nitro-wrangler"
+  },
   "workspaces": [
     "playground",
     "test/fixtures/*"
