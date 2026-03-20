@@ -27,6 +27,19 @@
         "wrangler": "^4.73.0",
       },
     },
+    "test/fixtures/app": {
+      "name": "nitro-wrangler-test-app",
+      "dependencies": {
+        "nitro": "^3.0.260311-beta",
+        "nitro-wrangler": "file:../../..",
+        "pg": "^8.20.0",
+      },
+      "devDependencies": {
+        "@types/node": "^25.5.0",
+        "@types/pg": "^8.18.0",
+        "wrangler": "^4.73.0",
+      },
+    },
   },
   "packages": {
     "@azure/abort-controller": ["@azure/abort-controller@2.1.2", "", { "dependencies": { "tslib": "^2.6.2" } }, "sha512-nBrLsEWm4J2u5LpAPjxADTlq3trDgVZZXHNKabeXZtpq3d3AbN/KGO82R87rdDz5/lYB024rtEf10/q0urNgsA=="],
@@ -379,6 +392,8 @@
 
     "nitro-wrangler-playground": ["nitro-wrangler-playground@workspace:playground"],
 
+    "nitro-wrangler-test-app": ["nitro-wrangler-test-app@workspace:test/fixtures/app"],
+
     "ocache": ["ocache@0.1.4", "", { "dependencies": { "ohash": "^2.0.11" } }, "sha512-e7geNdWjxSnvsSgvLuPvgKgu7ubM10ZmTPOgpr7mz2BXYtvjMKTiLhjFi/gWU8chkuP6hNkZBsa9LzOusyaqkQ=="],
 
     "ofetch": ["ofetch@2.0.0-alpha.3", "", {}, "sha512-zpYTCs2byOuft65vI3z43Dd6iSdFbOZZLb9/d21aCpx2rGastVU9dOCv0lu4ykc1Ur1anAYjDi3SUvR0vq50JA=="],
@@ -464,5 +479,7 @@
     "youch": ["youch@4.1.0-beta.10", "", { "dependencies": { "@poppinss/colors": "^4.1.5", "@poppinss/dumper": "^0.6.4", "@speed-highlight/core": "^1.2.7", "cookie": "^1.0.2", "youch-core": "^0.3.3" } }, "sha512-rLfVLB4FgQneDr0dv1oddCVZmKjcJ6yX6mS4pU82Mq/Dt9a3cLZQ62pDBL4AUO+uVrCvtWz3ZFUL2HFAFJ/BXQ=="],
 
     "youch-core": ["youch-core@0.3.3", "", { "dependencies": { "@poppinss/exception": "^1.2.2", "error-stack-parser-es": "^1.0.5" } }, "sha512-ho7XuGjLaJ2hWHoK8yFnsUGy2Y5uDpqSTq1FkHLK4/oqKtyUU1AFbOOxY4IpC9f0fTLjwYbslUz0Po5BpD1wrA=="],
+
+    "nitro-wrangler-test-app/nitro-wrangler": ["@root:", {}],
   }
 }

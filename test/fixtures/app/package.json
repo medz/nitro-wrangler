@@ -1,0 +1,19 @@
+{
+  "name": "nitro-wrangler-test-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:rollup": "NITRO_BUILDER=rollup nitro build",
+    "build:rolldown": "NITRO_BUILDER=rolldown nitro build"
+  },
+  "dependencies": {
+    "nitro": "^3.0.260311-beta",
+    "nitro-wrangler": "file:../../..",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/pg": "^8.18.0",
+    "wrangler": "^4.73.0"
+  }
+}

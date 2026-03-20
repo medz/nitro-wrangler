@@ -5,8 +5,8 @@
   "license": "MIT",
   "type": "module",
   "workspaces": [
-    ".",
-    "playground"
+    "playground",
+    "test/fixtures/*"
   ],
   "files": [
     "dist"
@@ -24,6 +24,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.build.json --noEmit",
+    "test:rollup": "bun run build && bun run --cwd test/fixtures/app build:rollup && node --test test/rollup.test.mjs",
+    "test:rolldown": "bun run build && bun run --cwd test/fixtures/app build:rolldown && node --test test/rolldown.test.mjs",
+    "test": "bun run test:rollup && bun run test:rolldown",
     "pack:dry": "npm pack --dry-run",
     "prepack": "bun run build"
   },
